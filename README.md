@@ -1,12 +1,10 @@
-# harjoitus5-template
-Ohjelmoinnin perusteiden harjoitus 5
+# Focar repository
+Ohjelmoinnin perusteiden harjoitus 7.1
 
 ## Opiskelija
 
-Täydennä tähän:
-
-- Nimi
-- Ryhmä
+- Nicholas Qvick
+- INTKM26A2
 
 ## Projektin kuvaus
 
