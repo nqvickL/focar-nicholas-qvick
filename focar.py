@@ -7,7 +7,6 @@
 from machine import Pin, PWM
 from time import sleep
 
-
 # Moottori A
 e1 = PWM(Pin(28))
 m1 = Pin(27, Pin.OUT)
@@ -20,42 +19,8 @@ m2 = Pin(22, Pin.OUT)
 e1.freq(1000)
 e2.freq(1000)
 
-# Funkito ledille
-def led():
-     # otetaan led olio käyttöön
-     led = Pin("LED", Pin.OUT)
-     # while true loopilla vilkutetaan lediä
-     while True:
-        #1 lyhyt
-        led.on()
-        sleep(1) 
-        led.off()
-        sleep(1)
-        #2 lyhyt
-        led.on()
-        sleep(1) 
-        led.off()
-        sleep(1)
-        #3 lyhyt
-        led.on()
-        sleep(1) 
-        led.off()
-        sleep(1)
-        #1 pitkä
-        led.on()
-        sleep(3) 
-        led.off()
-        sleep(3)
-        #2 pitkä
-        led.on()
-        sleep(3) 
-        led.off()
-        sleep(3)
-        #3 pitkä
-        led.on()
-        sleep(3) 
-        led.off()
-        sleep(3)
+# Led olio
+led = Pin("LED", Pin.OUT)
 
 # Moottoreiden pysäytys funktio
 def pysaytys(aika):
@@ -65,21 +30,25 @@ def pysaytys(aika):
 
 # Funktio eteenpäin menemiselle
 def eteenpain(aika): 
+    led.on()
     m1.value(1)
     m2.value(1)
     # 75% Nopeus 
     e1.duty_u16(49181)
     e2.duty_u16(49181)
     sleep(aika)
+    led.off()
 
 # Funktio paruuttamiselle
 def taaksepain(aika):
+    led.on()
     m1.value(0)
     m2.value(0)
     # 75% Nopeus
     e1.duty_u16(49181)
     e2.duty_u16(49181)
     sleep(aika)
+    led.off()
 
 # Kääntymisen funktio
 # 5 sekuntia riittää 90 asteen käännökselle laminaatilla vasemmalle,
@@ -90,6 +59,7 @@ def taaksepain(aika):
 def kaanny(suunta, aika):
     # Suunta vasemmalle
     if(suunta == "vasen"):
+        led.on()
         m1.value(1)
         # Toinen moottori taaksepäin
         m2.value(0)
@@ -99,8 +69,10 @@ def kaanny(suunta, aika):
         e2.duty_u16(32767)  
         # Kääntymisen kesto
         sleep(aika)
+        led.off()
     # Vaihtoehtoinen suunta (Todennäköisesti oikealle)
     else:
+        led.on()
         # Toinen moottori taaksepäin
         m1.value(0)
         m2.value(1)
@@ -110,15 +82,16 @@ def kaanny(suunta, aika):
         e2.duty_u16(32767) 
         # Kääntymisen kesto
         sleep(aika)
+        led.off()
 
 # U-käännökselle funktio
 def U(aika):
-        # Toinen moottori taaksepäin
-        m1.value(0)
-        m2.value(1)
-        # Nopeus 50%
-        e1.duty_u16(32767)
-        # Nopeus 50% 
-        e2.duty_u16(32767) 
-        # Kääntymisen kesto
-        sleep(aika)
+    # Toinen moottori taaksepäin
+    m1.value(0)
+    m2.value(1)
+    # Nopeus 50%
+    e1.duty_u16(32767)
+    # Nopeus 50% 
+    e2.duty_u16(32767) 
+    # Kääntymisen kesto
+    sleep(aika)
