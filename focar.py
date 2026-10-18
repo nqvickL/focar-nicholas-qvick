@@ -30,24 +30,32 @@ def pysaytys(aika):
 
 # Funktio eteenpäin menemiselle
 def eteenpain(aika): 
+    # LED päälle kun liikutaan
     led.on()
+    # Moottorit eteenpäin
     m1.value(1)
     m2.value(1)
     # 75% Nopeus 
     e1.duty_u16(49181)
     e2.duty_u16(49181)
+    # Kesto
     sleep(aika)
+    # LED kiinni kun funktio on valmis
     led.off()
 
 # Funktio paruuttamiselle
 def taaksepain(aika):
+    # LED päälle kun liikutaan
     led.on()
+    # Moottorit eteenpäin
     m1.value(0)
     m2.value(0)
     # 75% Nopeus
     e1.duty_u16(49181)
     e2.duty_u16(49181)
+    # Kesto
     sleep(aika)
+    # LED kiinni kun funktio on valmis
     led.off()
 
 # Kääntymisen funktio
@@ -59,6 +67,7 @@ def taaksepain(aika):
 def kaanny(suunta, aika):
     # Suunta vasemmalle
     if(suunta == "vasen"):
+        # LED päälle kun liikutaan
         led.on()
         m1.value(1)
         # Toinen moottori taaksepäin
@@ -69,9 +78,11 @@ def kaanny(suunta, aika):
         e2.duty_u16(32767)  
         # Kääntymisen kesto
         sleep(aika)
+        # LED kiinni kun funktio on valmis
         led.off()
     # Vaihtoehtoinen suunta (Todennäköisesti oikealle)
     else:
+        # LED päälle kun liikutaan
         led.on()
         # Toinen moottori taaksepäin
         m1.value(0)
@@ -82,6 +93,7 @@ def kaanny(suunta, aika):
         e2.duty_u16(32767) 
         # Kääntymisen kesto
         sleep(aika)
+        # LED kiinni kun funktio on valmis
         led.off()
 
 # U-käännökselle funktio
