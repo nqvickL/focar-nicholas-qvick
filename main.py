@@ -26,5 +26,7 @@ eteenpain(aika=3)
 # Lopetus
 pysaytys(aika=1)
 
+#Loppu 
+
 
 

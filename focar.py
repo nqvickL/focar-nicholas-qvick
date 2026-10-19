@@ -107,3 +107,5 @@ def U(aika):
     e2.duty_u16(32767) 
     # Kääntymisen kesto
     sleep(aika)
+
+# Loppu
