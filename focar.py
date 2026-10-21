@@ -3,6 +3,15 @@
 # FoCar test main file
 #
 
+# Tehot
+# 25% = 16383
+# 30% = 19660 
+# 40% = 26214
+# 50% = 32767
+# 60% = 39321
+# 75% = 49181
+# 100 = 65535
+
 # focar:in tarvitsemat kirjastot
 from machine import Pin, PWM
 from time import sleep
